@@ -38,11 +38,11 @@ export default function Carousel() {
 
     return (
         <main className="flex flex-row bg-black">
-            <div onClick={() => {moveCarousel('left')}} className="fixed top-1/2 left-10 p-2 z-50 bg-white text-black">Left arrow</div>
+            <a href="#" onClick={() => {moveCarousel('left')}} className="fixed top-1/2 left-10 p-2 z-50 bg-white text-black">Left arrow</a>
             <div className="flex flex-row">
                 {cards.map(card => <Card isCurrent={card.id === cards[currentSelection].id} key={card.id} title={card.title} img={card.img} />)}
             </div>
-            <div onClick={() => {moveCarousel('right')}} className="fixed top-1/2 right-10 p-2 z-50 bg-white text-black">Right arrow</div>
+            <a href="#" onClick={() => {moveCarousel('right')}} className="fixed top-1/2 right-10 p-2 z-50 bg-white text-black">Right arrow</a>
         </main>
     )
 }
