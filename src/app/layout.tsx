@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Cinema Antique -- Watch Classic Films in the Public Domain',
-  description: 'Public domain films',
+  description: 'A curated list of classic films in the public domain.',
 }
 
 export default function RootLayout({

@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import Card from "./Card"
+import Card from "./Card";
+import { exampleMovies } from '../app/lib/placeholderData';
 
 export default function Carousel() {
 
@@ -14,19 +15,7 @@ export default function Carousel() {
     const [cardRange, setRange] = useState<number[]>([0, 3])
 
     useEffect(() => {
-        const exampleCards = [
-            {title: "Napoléon", id: 'abc', img: "napoleon-1.jpeg"}, 
-            {title: "Metropolis", id: 'bcd', img: "metropolis-1.jpg"}, 
-            {title: "The Last Command", id: 'cde', img: 'last-command-1.jpeg'}, 
-            {title: "The Big Parade", id: 'def', img: 'big-parade-1.jpg'}, 
-            {title: "The Crowd", id: 'efg', img: 'crowd-1.jpeg'},
-            {title: "Napoléon", id: 'abcd', img: "napoleon-1.jpeg"},  
-            {title: "The Last Command", id: 'cdef', img: 'last-command-1.jpeg'},
-            {title: "The Big Parade", id: 'defg', img: 'big-parade-1.jpg'}, 
-            {title: "Metropolis", id: 'bcde', img: "metropolis-1.jpg"}, 
-            {title: "The Crowd", id: 'efgh', img: 'crowd-1.jpeg'},
-        ]
-        setCards(exampleCards)
+        setCards(exampleMovies)
     }, [])
 
     function moveCarousel(direction: string) {
