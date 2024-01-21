@@ -1,7 +1,9 @@
+
 export default function Page() {
+
     return (
         <main>
-            <p>This is the default page</p>
+            <p>Welcome to Cinema Antique! Browse movies below...</p>
         </main>
     )
 }

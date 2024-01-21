@@ -1,34 +1,14 @@
 'use client'
-
-import { useEffect, useState } from "react"
 import Card from "./Card";
-import { exampleMovies } from '../app/lib/placeholderData';
+import { MovieInfo } from "@/app/lib/definitions";
 
-export default function Carousel() {
+interface CarouselProps {
+    cards: MovieInfo[],
+    cardRange: number[],
+    moveCarousel: (direction: string) => void
+}
 
-    interface Card {
-        title: string,
-        id: string,
-        img: string
-    }
-    const [cards, setCards] = useState<Card[]>([])
-    const [cardRange, setRange] = useState<number[]>([0, 3])
-
-    useEffect(() => {
-        setCards(exampleMovies)
-    }, [])
-
-    function moveCarousel(direction: string) {
-        if(direction === 'left') {
-            if(cardRange[0] > 0) {
-                setRange(current => current.map((edge) => {return edge - 1 }))
-            }
-        } else if(direction === 'right') {
-            if(cardRange[0] < cards.length - 1) {
-                setRange(current => current.map((edge) => {return edge + 1}))
-            }
-        }
-    }
+export default function Carousel({cards, cardRange, moveCarousel}: CarouselProps) {
 
     return (
         <main className="flex flex-row bg-black">

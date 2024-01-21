@@ -7,3 +7,24 @@ export const exampleMovies = [
     {title: "The Crowd", id: 'efg', img: 'crowd-1.jpeg'},
     {title: "The Big Combo", id: 'hij', img: 'big-combo-1.jpg'},
 ]
+
+/* 
+final form of 'movie' object:
+{
+    title: "My Movie",
+    id: '1234abcd',
+    info: {
+        description: "description of the movie",
+        director: "Joe Director",
+        stars: ["Actor A", "Actor B"],
+        release: "1933",
+        isSilent: false,
+        runTime: 120
+    }
+    posterImage: '/posters/1234abcd.jpg',
+    splashImage: '/splash/1234abcd.jpg',
+    isCollection: false,
+    // if it's a collection, we have sub-group containing info about the individual parts...
+    collection: []
+}
+*/
