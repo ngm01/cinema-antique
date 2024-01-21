@@ -1,6 +1,9 @@
 'use client'
+import { useEffect, useState } from "react";
 import Card from "./Card";
+import { exampleMovies } from '../app/lib/placeholderData';
 import { MovieInfo } from "@/app/lib/definitions";
+import { redirect, useRouter, usePathname } from "next/navigation";
 
 interface CarouselProps {
     cards: MovieInfo[],
@@ -8,7 +11,42 @@ interface CarouselProps {
     moveCarousel: (direction: string) => void
 }
 
-export default function Carousel({cards, cardRange, moveCarousel}: CarouselProps) {
+export default function Carousel() {
+
+    const [cards, setCards] = useState<MovieInfo[]>([])
+    const [cardRange, setRange] = useState<number[]>([0, 3])
+    const pathname = usePathname();
+    const { replace } = useRouter()
+
+    useEffect(() => {
+        setCards(exampleMovies)
+    }, [])
+
+    useEffect(() => {
+        if(cards.length) {
+            replace(`/browse/${cards[cardRange[0]].id}`)
+        }
+    }, [cards])
+
+    useEffect(()=> {
+        //
+        if(cards.length) {
+            console.log(cards[cardRange[0]])
+            replace(`/browse/${cards[cardRange[0]].id}`)
+        }
+    }, [cardRange])
+
+    function moveCarousel(direction: string) {
+        if(direction === 'left') {
+            if(cardRange[0] > 0) {
+                setRange(current => current.map((edge) => {return edge - 1 }))
+            }
+        } else if(direction === 'right') {
+            if(cardRange[0] < cards.length - 1) {
+                setRange(current => current.map((edge) => {return edge + 1}))
+            }
+        }
+    }
 
     return (
         <main className="flex flex-row bg-black">
