@@ -5,7 +5,7 @@ import Carousel from "@/components/Carousel";
 export default function Layout({ children } : { children: React.ReactNode }) {
 
     return (
-        <main>
+        <main className="flex flex-col">
             <Header />
             {children}
             <Carousel />

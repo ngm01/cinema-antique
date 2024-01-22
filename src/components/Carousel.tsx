@@ -3,13 +3,7 @@ import { useEffect, useState } from "react";
 import Card from "./Card";
 import { exampleMovies } from '../app/lib/placeholderData';
 import { MovieInfo } from "@/app/lib/definitions";
-import { redirect, useRouter, usePathname } from "next/navigation";
-
-interface CarouselProps {
-    cards: MovieInfo[],
-    cardRange: number[],
-    moveCarousel: (direction: string) => void
-}
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Carousel() {
 
